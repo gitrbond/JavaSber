@@ -13,11 +13,11 @@ public class Client {
         this.isSanctioned = isSanctioned;
     }
 
-    public String toString() {
+    /*public String toString() {
         return "Holding{"
                 + "name='" + name + '\n'
                 + ", inn=" + inn + '\n'
                 + ", clientType=" + clientType
                 + ", isSanctioned=" + isSanctioned + "\n}";
-    }
+    }*/
 }
