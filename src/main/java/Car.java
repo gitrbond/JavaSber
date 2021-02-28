@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Car {
     private final int carId;
     private final String brand;
@@ -15,44 +17,59 @@ public class Car {
         this.ownerId = ownerId;
     }
 
+    public Car(int carId) {
+        this.carId = carId;
+        this.brand = "";
+        this.modelName = "";
+        this.maxVelocity = 0;
+        this.power = 0;
+        this.ownerId = 0;
+    }
+
+    public int getCarId() {
+        return carId;
+    }
+
+    public int getMaxVelocity() {
+        return maxVelocity;
+    }
+
+    public int getPower() {
+        return power;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public int getOwnerId() {
+        return ownerId;
+    }
+
+    /*@Override
+    public int compareTo(Car c) {
+        if (c.maxVelocity > param) {
+            return 1;
+        } else if (o.param < param) {
+            return -1;
+        } else return Integer.compare(o.id, id);
+    }*/
+
     @Override
     public String toString() {
-        return String.format(carId + " " + brand + ", " + modelName + ", v: " + maxVelocity + ", W: " + power + ", oID: " + ownerId);
+        return String.format("cId:" + carId + " " + brand + " " + modelName + " v:" + maxVelocity + " p:" + power + " oID:" + ownerId);
     }
 
     @Override
-    public int hashCode()
-    {
-        final int prime = 31;
-        int result = brand.hashCode() + modelName.hashCode();
-        result = prime * result + carId;
-        result = prime * result + maxVelocity;
-        result = prime * result + power;
-        result = prime * result + ownerId;
-        return result;
+    public int hashCode() {
+        return Objects.hash(carId);
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Car car = (Car) obj;
-        if (carId != car.carId)
-            return false;
-        if (!brand.equals(car.brand))
-            return false;
-        if (!modelName.equals(car.modelName))
-            return false;
-        if (maxVelocity != car.maxVelocity)
-            return false;
-        if (power != car.power)
-            return false;
-        if (ownerId != car.ownerId)
-            return false;
-        return true;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return carId == car.carId;
     }
 }
