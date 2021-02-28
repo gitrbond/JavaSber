@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Owner {
     private final int ownerId;
     private final String name;
@@ -11,35 +13,36 @@ public class Owner {
         this.age = age;
     }
 
+    public Owner(int ownerId) {
+        this.ownerId = ownerId;
+        this.name = "";
+        this.lastName = "";
+        this.age = 0;
+    }
+
+    public int getOwnerId() {
+        return ownerId;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
     @Override
     public String toString() {
-        return String.format(name + " " + lastName + ", " + age + " years, oID: " + ownerId);
+        return String.format("oID:" + ownerId + " " + name + " " + lastName + " age:" + age);
     }
 
     @Override
-    public int hashCode()
-    {
-        final int prime = 31;
-        int result = name.hashCode() + lastName.hashCode();
-        result = prime * result + age;
-        return result;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Owner owner = (Owner) o;
+        return ownerId == owner.ownerId;
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Owner owner = (Owner) obj;
-        if (!name.equals(owner.name))
-            return false;
-        if (!lastName.equals(owner.lastName))
-            return false;
-        if (age != owner.age)
-            return false;
-        return true;
+    public int hashCode() {
+        return Objects.hash(ownerId);
     }
 }
