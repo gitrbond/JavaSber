@@ -1,3 +1,5 @@
+package ru.sber.garage;
+
 import java.util.Objects;
 
 public class Car {
@@ -45,15 +47,6 @@ public class Car {
     public int getOwnerId() {
         return ownerId;
     }
-
-    /*@Override
-    public int compareTo(Car c) {
-        if (c.maxVelocity > param) {
-            return 1;
-        } else if (o.param < param) {
-            return -1;
-        } else return Integer.compare(o.id, id);
-    }*/
 
     @Override
     public String toString() {
