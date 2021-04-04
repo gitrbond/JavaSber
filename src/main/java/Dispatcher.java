@@ -1,2 +1,5 @@
-package PACKAGE_NAME;public interface Dispatcher {
+public interface Dispatcher extends Runnable {
+    void notifyAvailable(Taxi taxi);
+
+    void run();
 }

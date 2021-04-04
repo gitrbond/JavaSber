@@ -1,2 +1,5 @@
-package PACKAGE_NAME;public interface Taxi {
+public interface Taxi extends Runnable {
+    void run();
+
+    void placeOrder(Order order);
 }
